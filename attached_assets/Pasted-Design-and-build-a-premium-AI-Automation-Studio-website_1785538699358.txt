@@ -1,0 +1,436 @@
+Design and build a premium AI Automation Studio website inspired by the visual elegance and design philosophy of CRED.
+
+IMPORTANT:
+Do NOT copy CRED's branding, illustrations, logos, colors, or layouts. Instead, capture the same feeling:
+- luxurious
+- minimalist
+- high-end
+- cinematic
+- elegant
+- premium
+- confident
+- product-focused
+
+The final result should feel like if Apple, CRED, Linear, Vercel, and Stripe collaborated on an AI company website.
+
+=================================================
+VISUAL STYLE
+=================================================
+
+Dark mode only.
+
+Background:
+#050505
+
+Surface:
+#0B0B0B
+
+Cards:
+#111111
+
+Borders:
+rgba(255,255,255,0.06)
+
+Primary Text:
+#FFFFFF
+
+Secondary Text:
+#B8B8B8
+
+Muted Text:
+#7B7B7B
+
+Accent:
+Use ONLY one accent color throughout the website:
+#7C5CFF
+OR
+#3B82F6
+
+Never use multiple accent colors.
+
+Use generous whitespace.
+
+Every section should breathe.
+
+Use an 8px spacing system.
+
+Maximum content width:
+1280px
+
+Rounded corners:
+18px
+
+Soft shadows only.
+
+No bright gradients.
+
+No neon effects.
+
+No noisy backgrounds.
+
+No generic AI illustrations.
+
+=================================================
+TYPOGRAPHY
+=================================================
+
+Use:
+Geist
+Inter
+
+Large editorial headings.
+
+Hero heading:
+72–96px
+
+Section headings:
+48–60px
+
+Body:
+18px
+
+Small text:
+15px
+
+Typography should carry the design.
+
+Never clutter the page.
+
+=================================================
+ANIMATIONS
+=================================================
+
+Animations must feel expensive.
+
+Use Framer Motion.
+
+Only use:
+
+Fade
+
+Blur
+
+Slide
+
+Scale
+
+Parallax
+
+Mouse glow
+
+Card hover
+
+Reveal on scroll
+
+Slow easing.
+
+No bouncing.
+
+No flashy animations.
+
+Everything should feel calm and premium.
+
+=================================================
+TECH STACK
+=================================================
+
+Next.js 15
+
+TypeScript
+
+Tailwind CSS
+
+shadcn/ui
+
+Framer Motion
+
+GSAP only if absolutely necessary
+
+Lucide Icons
+
+Responsive
+
+SEO Optimized
+
+Accessible
+
+95+ Lighthouse Score
+
+=================================================
+HERO
+=================================================
+
+Create a cinematic hero.
+
+Large headline.
+
+Example tone:
+
+"AI systems that grow your business while you focus on running it."
+
+Short supporting text explaining that we design premium websites, AI assistants, and business automations for growing businesses.
+
+Primary CTA
+
+Book a Discovery Call
+
+Secondary CTA
+
+Explore Solutions
+
+Include a subtle animated background using soft radial gradients or moving light, never distracting.
+
+=================================================
+SERVICES
+=================================================
+
+Present exactly three premium cards.
+
+Package One
+
+Premium Website
+
+Includes:
+Responsive Website
+Landing Pages
+SEO
+Analytics
+CMS
+Performance Optimization
+Contact Forms
+
+Package Two
+
+Website + AI
+
+Everything above plus:
+
+AI Chatbot
+
+Knowledge Base
+
+WhatsApp Integration
+
+Appointment Booking
+
+Lead Qualification
+
+CRM Integration
+
+Email Notifications
+
+Google Calendar
+
+Package Three
+
+Business Automation
+
+Everything above plus:
+
+Workflow Automation
+
+CRM Automation
+
+AI Agents
+
+Lead Scoring
+
+WhatsApp Automation
+
+Dashboards
+
+Reports
+
+Internal Tools
+
+API Integrations
+
+Each card should have subtle hover elevation and premium animations.
+
+=================================================
+WORKFLOW SECTION
+=================================================
+
+Build an elegant workflow visualization.
+
+Website Visitor
+
+↓
+
+AI Assistant
+
+↓
+
+Lead Qualification
+
+↓
+
+CRM
+
+↓
+
+Calendar
+
+↓
+
+WhatsApp
+
+↓
+
+Sales Dashboard
+
+Animate each step while scrolling.
+
+=================================================
+INDUSTRIES
+=================================================
+
+Use premium cards.
+
+Healthcare
+
+Real Estate
+
+Education
+
+Recruitment
+
+Legal
+
+Restaurants
+
+Construction
+
+Consultants
+
+Gyms
+
+Each card should contain a simple monochrome icon.
+
+=================================================
+PROCESS
+=================================================
+
+Four steps.
+
+Discover
+
+Design
+
+Build
+
+Launch
+
+Simple timeline.
+
+=================================================
+CASE STUDIES
+=================================================
+
+Premium cards.
+
+Before
+
+After
+
+Time Saved
+
+Revenue Increase
+
+Customer Satisfaction
+
+Keep placeholders ready for future projects.
+
+=================================================
+PRICING
+=================================================
+
+Do not display fixed prices.
+
+Instead:
+
+Starting from
+
+Custom Quote
+
+Book Consultation
+
+Premium presentation.
+
+=================================================
+FAQ
+=================================================
+
+Accordion style.
+
+Minimal.
+
+=================================================
+CONTACT
+=================================================
+
+Calendly Integration
+
+WhatsApp
+
+LinkedIn
+
+Email
+
+Minimal form.
+
+=================================================
+FOOTER
+=================================================
+
+Extremely minimal.
+
+Logo
+
+Navigation
+
+Social Links
+
+Copyright
+
+=================================================
+MICRO INTERACTIONS
+=================================================
+
+Buttons glow softly on hover.
+
+Cards slightly lift.
+
+Mouse spotlight effect.
+
+Smooth page transitions.
+
+Premium loading animation.
+
+Cursor interactions where appropriate.
+
+Sticky navigation with blur.
+
+Animated underline on links.
+
+=================================================
+GENERAL RULES
+=================================================
+
+Never make it look like a marketing agency.
+
+Never use stock photos.
+
+Never use cartoon AI graphics.
+
+Avoid visual clutter.
+
+The website should feel like a premium software company that happens to provide AI automation services.
+
+Every section should communicate trust, sophistication, and technical excellence.
+
+The overall emotional response should be:
+
+"This company builds serious AI systems for serious businesses."
+
+Generate production-ready code with reusable components, clean architecture, semantic HTML, responsive layouts, and modern best practices.
