@@ -5,7 +5,6 @@ import Services from "@/components/Services";
 import Workflow from "@/components/Workflow";
 import Industries from "@/components/Industries";
 import Process from "@/components/Process";
-import CaseStudies from "@/components/CaseStudies";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
@@ -22,7 +21,6 @@ export default function Home() {
         <Workflow />
         <Industries />
         <Process />
-        <CaseStudies />
         <Pricing />
         <FAQ />
         <Contact />

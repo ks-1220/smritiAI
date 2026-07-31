@@ -1,53 +1,146 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Code2, Bot, Workflow } from "lucide-react";
+import { Check } from "lucide-react";
+
+const services = [
+  {
+    label: "PACKAGE ONE",
+    title: "Premium Website",
+    description: "A fast, editorial-grade site engineered to convert — the foundation everything else builds on.",
+    includesLabel: "Includes:",
+    features: [
+      "Responsive Website",
+      "Landing Pages",
+      "SEO",
+      "Analytics",
+      "CMS",
+      "Performance Optimization",
+      "Contact Forms",
+    ],
+    isPopular: false,
+  },
+  {
+    label: "PACKAGE TWO",
+    title: "Website + AI",
+    description: "Your site answers, qualifies and books — an assistant that works every hour you don't.",
+    includesLabel: "Everything in Premium Website, plus:",
+    features: [
+      "AI Chatbot",
+      "Knowledge Base",
+      "WhatsApp Integration",
+      "Appointment Booking",
+      "Lead Qualification",
+      "CRM Integration",
+      "Email Notifications",
+      "Google Calendar",
+    ],
+    isPopular: true,
+  },
+  {
+    label: "PACKAGE THREE",
+    title: "Business Automation",
+    description: "Operations that run themselves, with agents, dashboards and integrations across your stack.",
+    includesLabel: "Everything in Website + AI, plus:",
+    features: [
+      "Workflow Automation",
+      "CRM Automation",
+      "AI Agents",
+      "Lead Scoring",
+      "WhatsApp Automation",
+      "Dashboards",
+      "Reports",
+      "Internal Tools",
+      "API Integrations",
+    ],
+    isPopular: false,
+  },
+];
+
+function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [glowPos, setGlowPos] = useState({ x: 50, y: 50 });
+  const [hovered, setHovered] = useState(false);
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setGlowPos({ x, y });
+  }
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="relative flex flex-col rounded-2xl border border-white/6 bg-[#111111] overflow-hidden transition-all duration-300"
+      style={{
+        boxShadow: hovered
+          ? service.isPopular
+            ? "0 0 0 1px rgba(124,92,255,0.4), 0 20px 40px rgba(0,0,0,0.4)"
+            : "0 0 0 1px rgba(255,255,255,0.08), 0 20px 40px rgba(0,0,0,0.4)"
+          : undefined,
+      }}
+    >
+      {/* Cursor glow */}
+      <div
+        className="pointer-events-none absolute inset-0 transition-opacity duration-300"
+        style={{
+          opacity: hovered ? 1 : 0,
+          background: `radial-gradient(320px circle at ${glowPos.x}% ${glowPos.y}%, rgba(124,92,255,0.10) 0%, transparent 70%)`,
+        }}
+      />
+
+      <div className="relative z-10 flex flex-col h-full p-8">
+        {/* Label row */}
+        <div className="flex items-center justify-between mb-6">
+          <span className="text-[11px] font-semibold tracking-[0.18em] text-[#7B7B7B] uppercase">
+            {service.label}
+          </span>
+          {service.isPopular && (
+            <span className="bg-accent text-white text-[11px] font-semibold tracking-wide px-3 py-1 rounded-full">
+              Most chosen
+            </span>
+          )}
+        </div>
+
+        {/* Title */}
+        <h3 className="text-[28px] font-bold text-white leading-tight mb-3">{service.title}</h3>
+
+        {/* Description */}
+        <p className="text-[15px] text-[#B8B8B8] leading-relaxed mb-8">{service.description}</p>
+
+        {/* Divider + includes label */}
+        <div className="bg-white/5 rounded-lg px-4 py-2.5 mb-6">
+          <span className="text-[13px] text-[#B8B8B8]">{service.includesLabel}</span>
+        </div>
+
+        {/* Features */}
+        <ul className="space-y-3 flex-1">
+          {service.features.map((feature) => (
+            <li key={feature} className="flex items-center gap-3">
+              <Check size={15} className="text-accent shrink-0" />
+              <span className="text-[14px] text-[#B8B8B8]">{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <button className="mt-8 w-full py-3 rounded-xl border border-white/10 bg-white/4 text-white text-[14px] font-medium hover:border-accent/40 hover:bg-white/7 transition-all duration-300">
+          Request a scope
+        </button>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Services() {
-  const services = [
-    {
-      icon: <Code2 size={24} />,
-      title: "Premium Website",
-      description: "A foundational digital presence engineered for speed, conversion, and brand authority.",
-      label: "Foundation",
-      features: [
-        "Responsive Custom Design",
-        "High-Converting Landing Pages",
-        "Technical SEO & Analytics",
-        "Headless CMS Integration",
-        "Performance Optimization",
-        "Contact & Lead Forms"
-      ]
-    },
-    {
-      icon: <Bot size={24} />,
-      title: "Website + AI",
-      description: "Transform your site into an active employee that qualifies leads and books meetings 24/7.",
-      label: "Most Popular",
-      isPopular: true,
-      features: [
-        "Everything in Foundation",
-        "Custom AI Knowledge Base",
-        "Conversational Lead Qualification",
-        "Automated Meeting Booking",
-        "WhatsApp Integration",
-        "Basic CRM Sync"
-      ]
-    },
-    {
-      icon: <Workflow size={24} />,
-      title: "Business Automation",
-      description: "End-to-end operational automation. Connect your entire tech stack and eliminate manual work.",
-      label: "Enterprise",
-      features: [
-        "Everything in Website + AI",
-        "Complex Workflow Automation",
-        "Advanced CRM Customization",
-        "Custom AI Agents",
-        "Real-time Data Dashboards",
-        "Custom API Integrations"
-      ]
-    }
-  ];
-
   return (
     <section id="solutions" className="py-32">
       <div className="max-w-[1280px] mx-auto px-6">
@@ -56,62 +149,17 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-[800px] mx-auto mb-20"
+          className="max-w-[680px] mb-20"
         >
-          <h2 className="text-[40px] md:text-[56px] font-bold text-white tracking-tight mb-6">
-            Comprehensive Solutions
+          <p className="text-[11px] font-semibold tracking-[0.18em] text-[#7B7B7B] uppercase mb-4">Solutions</p>
+          <h2 className="text-[40px] md:text-[56px] font-bold text-white tracking-tight leading-tight">
+            Three packages.<br />One clear path forward.
           </h2>
-          <p className="text-[18px] text-secondary-foreground">
-            We don't just build websites. We build automated revenue systems tailored to your operational complexity.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className={`relative bg-[#111111] rounded-[24px] p-8 border card-hover transition-all duration-500 flex flex-col ${
-                service.isPopular ? "border-accent/50" : "border-white/5"
-              }`}
-            >
-              {service.isPopular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                  {service.label}
-                </div>
-              )}
-              
-              {!service.isPopular && (
-                <div className="absolute top-8 right-8 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                  {service.label}
-                </div>
-              )}
-
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${
-                service.isPopular ? "bg-accent/20 text-accent" : "bg-white/5 text-white"
-              }`}>
-                {service.icon}
-              </div>
-
-              <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
-              <p className="text-secondary-foreground mb-8 text-[15px] leading-relaxed flex-grow">
-                {service.description}
-              </p>
-
-              <div className="h-[1px] w-full bg-white/5 mb-8" />
-
-              <ul className="space-y-4">
-                {service.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <Check size={18} className="text-accent shrink-0 mt-0.5" />
-                    <span className="text-[15px] text-secondary-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
       </div>
