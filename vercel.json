@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "framework": "vite",
+  "installCommand": "pnpm install --ignore-scripts",
+  "buildCommand": "pnpm --filter @workspace/ai-studio run build",
+  "outputDirectory": "artifacts/ai-studio/dist/public",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
